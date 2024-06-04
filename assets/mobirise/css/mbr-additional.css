@@ -1341,6 +1341,11 @@ a {
   display: flex;
   padding-top: 12rem;
   padding-bottom: 0rem;
+  background-image: url("../../../assets/images/-ff258a1d-d68f-4b21-a510-4dc7a92c50de-1024x1024.jpeg");
+}
+.cid-ueI9DPRiM8 .mbr-overlay {
+  background-color: #000000;
+  opacity: 0.5;
 }
 @media (min-width: 768px) {
   .cid-ueI9DPRiM8 {
@@ -1382,7 +1387,6 @@ a {
   height: 100%;
   position: absolute;
   top: 0;
-  background-image: url("../../../assets/images/background1.jpg");
 }
 .cid-ueI9DPRiM8 .mbr-section-title,
 .cid-ueI9DPRiM8 .mbr-section-subtitle {
