@@ -1,2 +1,6 @@
+# Włączanie mod_rewrite
+RewriteEngine On
+
 # Przekierowanie 301 z index.html na główną stronę
-Redirect 301 /index.html https://zzamilowania.pl/
+RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteRule ^index\.html$ / [R=301,L]
