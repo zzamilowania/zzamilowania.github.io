@@ -1,0 +1,2 @@
+# Przekierowanie 301 z index.html na główną stronę
+Redirect 301 /index.html https://zzamilowania.pl/
