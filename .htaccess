@@ -2,7 +2,7 @@
 RewriteEngine On
 
 # Przekierowanie 301 z index.html na główną stronę
-RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteCond %{REQUEST_URI} /index\.html$ [NC]
 RewriteRule ^index\.html$ / [R=301,L]
 
 # Przekierowanie stron z rozszerzeniem .html na ich odpowiedniki bez .html
