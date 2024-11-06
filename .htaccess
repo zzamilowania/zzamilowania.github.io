@@ -1,9 +1,13 @@
-# Włączanie mod_rewrite 
+# Włączanie mod_rewrite
 RewriteEngine On
 
 # Przekierowanie 301 z index.html na główną stronę
-RewriteCond %{REQUEST_URI} /index\.html$ [NC]
+RewriteCond %{THE_REQUEST} /index\.html [NC]
 RewriteRule ^index\.html$ / [R=301,L]
+
+# Upewnij się, że wymusza przekierowanie, nawet jeśli jest dodatkowy "/" na końcu
+RewriteCond %{THE_REQUEST} /index\.html/ [NC]
+RewriteRule ^index\.html/?$ / [R=301,L]
 
 # Przekierowanie stron z rozszerzeniem .html na ich odpowiedniki bez .html
 RewriteCond %{REQUEST_FILENAME} !-d
