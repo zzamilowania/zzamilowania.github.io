@@ -1,4 +1,3 @@
-# Włączanie mod_rewrite
 RewriteEngine On
 
 # Przekierowanie 301 z index.html na główną stronę
