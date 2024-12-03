@@ -36,12 +36,12 @@ body {
   font-size: 5rem;
 }
 .display-4 {
-  font-family: 'Inter Tight', sans-serif;
-  font-size: 1.4rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
   line-height: 1.5;
 }
 .display-4 > .mbr-iconfont {
-  font-size: 1.75rem;
+  font-size: 2.25rem;
 }
 .display-5 {
   font-family: 'Inter Tight', sans-serif;
@@ -81,9 +81,9 @@ body {
     line-height: calc( 1.3 * (2.05rem + (4 - 2.05) * ((100vw - 20rem) / (48 - 20))));
   }
   .display-4 {
-    font-size: 1.12rem;
-    font-size: calc( 1.14rem + (1.4 - 1.14) * ((100vw - 20rem) / (48 - 20)));
-    line-height: calc( 1.4 * (1.14rem + (1.4 - 1.14) * ((100vw - 20rem) / (48 - 20))));
+    font-size: 1.44rem;
+    font-size: calc( 1.28rem + (1.8 - 1.28) * ((100vw - 20rem) / (48 - 20)));
+    line-height: calc( 1.4 * (1.28rem + (1.8 - 1.28) * ((100vw - 20rem) / (48 - 20))));
   }
   .display-5 {
     font-size: 1.6rem;
@@ -108,9 +108,9 @@ body {
     line-height: calc( 1.3 * (2.05rem + (4 - 2.05) * ((100vw - 62rem) / (87 - 62))));
   }
   .display-4 {
-    font-size: 1.12rem;
-    font-size: calc( 1.14rem + (1.4 - 1.14) * ((100vw - 62rem) / (87 - 62)));
-    line-height: calc( 1.4 * (1.14rem + (1.4 - 1.14) * ((100vw - 62rem) / (87 - 62))));
+    font-size: 1.44rem;
+    font-size: calc( 1.28rem + (1.8 - 1.28) * ((100vw - 62rem) / (87 - 62)));
+    line-height: calc( 1.4 * (1.28rem + (1.8 - 1.28) * ((100vw - 62rem) / (87 - 62))));
   }
   .display-5 {
     font-size: 1.6rem;
@@ -184,9 +184,9 @@ body {
 }
 .btn-secondary,
 .btn-secondary:active {
-  background-color: #ffd7ef !important;
-  border-color: #ffd7ef !important;
-  color: #d70081 !important;
+  background-color: #d70081 !important;
+  border-color: #d70081 !important;
+  color: #ffffff !important;
   box-shadow: none;
 }
 .btn-secondary:hover,
@@ -194,15 +194,15 @@ body {
 .btn-secondary.focus,
 .btn-secondary.active {
   color: inherit;
-  background-color: #ffffff !important;
-  border-color: #ffffff !important;
+  background-color: #ff0b9d !important;
+  border-color: #ff0b9d !important;
   box-shadow: none;
 }
 .btn-secondary.disabled,
 .btn-secondary:disabled {
-  color: #d70081 !important;
-  background-color: #ffffff !important;
-  border-color: #ffffff !important;
+  color: #ffffff !important;
+  background-color: #ff0b9d !important;
+  border-color: #ff0b9d !important;
 }
 .btn-info,
 .btn-info:active {
@@ -360,23 +360,23 @@ body {
 .btn-secondary-outline,
 .btn-secondary-outline:active {
   background-color: transparent !important;
-  border-color: #ffd7ef;
-  color: #ffd7ef;
+  border-color: #d70081;
+  color: #d70081;
 }
 .btn-secondary-outline:hover,
 .btn-secondary-outline:focus,
 .btn-secondary-outline.focus,
 .btn-secondary-outline.active {
-  color: #ff80cc !important;
+  color: #80004d !important;
   background-color: transparent !important;
-  border-color: #ff80cc !important;
+  border-color: #80004d !important;
   box-shadow: none !important;
 }
 .btn-secondary-outline.disabled,
 .btn-secondary-outline:disabled {
-  color: #d70081 !important;
-  background-color: #ffd7ef !important;
-  border-color: #ffd7ef !important;
+  color: #ffffff !important;
+  background-color: #d70081 !important;
+  border-color: #d70081 !important;
 }
 .btn-info-outline,
 .btn-info-outline:active {
@@ -508,7 +508,7 @@ body {
   color: #2b7a69 !important;
 }
 .text-secondary {
-  color: #ffd7ef !important;
+  color: #d70081 !important;
 }
 .text-success {
   color: #3a341c !important;
@@ -536,7 +536,7 @@ a.text-primary.active {
 a.text-secondary:hover,
 a.text-secondary:focus,
 a.text-secondary.active {
-  color: #ff71c6 !important;
+  color: #710044 !important;
 }
 a.text-success:hover,
 a.text-success:focus,
@@ -718,8 +718,8 @@ blockquote {
 }
 .xdsoft_datetimepicker .xdsoft_calendar td:hover,
 .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div:hover {
-  color: #000000 !important;
-  background: #ffd7ef !important;
+  color: #ffffff !important;
+  background: #d70081 !important;
   box-shadow: none !important;
 }
 .lazy-bg {
