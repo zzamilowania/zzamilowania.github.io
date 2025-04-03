@@ -114,9 +114,9 @@
     "index.html": {
       "settings": {
         "main": true,
-        "title": "Z Zamiłowania - Trener personalny Judyta Piechocka | Baranowo",
+        "title": "Z Zamiłowania - certyfikowany trener personalny Judyta Piechocka | Baranowo",
         "meta_descr": "Judyta Piechocka – certyfikowany trener personalny. Treningi indywidualne w prywatnej siłowni w Baranowie oraz grupowe w okolicznych miejscowościach.",
-        "header_custom": "",
+        "header_custom": "<link rel=\"canonical\" href=\"https://zzamilowania.pl/\" />\n<meta name=\"robots\" content=\"index, follow\">",
         "footer_custom": "",
         "html_before": "",
         "socialSharingUrl": ""
