@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "Z zamiłowania",
-    "currentPage": "index.html",
+    "currentPage": "reklama.html",
     "theme": {
       "name": "startm5",
       "title": "StartM5",
@@ -116,10 +116,11 @@
         "main": true,
         "title": "Z Zamiłowania - certyfikowany trener personalny Judyta Piechocka | Baranowo",
         "meta_descr": "Judyta Piechocka – certyfikowany trener personalny. Treningi indywidualne w prywatnej siłowni w Baranowie oraz grupowe w okolicznych miejscowościach.",
-        "header_custom": "<link rel=\"canonical\" href=\"https://zzamilowania.pl/\" />\n<meta name=\"robots\" content=\"index, follow\">",
+        "header_custom": "<link rel=\"canonical\" href=\"https://zzamilowania.pl/\" />\n<meta name=\"robots\" content=\"index, follow\">\n<meta name=\"keywords\" content=\"trener personalny, treningi Baranowo, prywatna siłownia, fitness, treningi indywidualne, zdrowie, osiąganie celów\">\n<meta name=\"publisher\" content=\"Z Zamiłowania - Judyta Piechocka\">",
         "footer_custom": "",
-        "html_before": "",
-        "socialSharingUrl": ""
+        "html_before": "<html lang=\"pl\">",
+        "socialSharingUrl": "",
+        "meta_image": "@PROJECT_PATH@/assets/images/logo%20ko%C5%81o_ma%C5%82e-210x210.jpg"
       },
       "components": [
         {
@@ -2874,7 +2875,11 @@
       "settings": {
         "title": "Z Zamiłowania - Tworzenie stron, marketing i promocja dla małych firm.",
         "order": "1",
-        "meta_descr": "Z Zamiłowania - Tworzymy strony internetowe, angażujące posty i marketing online, wspierając rozwój małych firm."
+        "meta_descr": "Z Zamiłowania - Tworzymy strony internetowe, angażujące posty i marketing online, wspierając rozwój małych firm.",
+        "footer_custom": "",
+        "meta_image": "@PROJECT_PATH@/assets/images/logo-koo-podpis-480x480.png",
+        "header_custom": "<link rel=\"canonical\" href=\"https://zzamilowania.pl/reklama.html\" />\n<meta name=\"robots\" content=\"index, follow\">\n<meta name=\"publisher\" content=\"Z Zamiłowania - Judyta Piechocka\">",
+        "html_before": "<html lang=\"pl\">"
       },
       "components": [
         {
