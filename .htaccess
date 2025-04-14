@@ -12,13 +12,16 @@ RewriteRule ^(.*)$ https://zzamilowania.pl/$1 [R=301,L]
 RewriteCond %{THE_REQUEST} /index\.html [NC]
 RewriteRule ^index\.html/?$ / [R=301,L]
 
-# Przekierowanie stron z rozszerzeniem .html na ich odpowiedniki bez .html
+# Przekierowanie stron z .html na wersje bez rozszerzenia (POPRAWIONE)
+RewriteCond %{THE_REQUEST} \.html [NC]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.+)$ /$1 [R=301,L]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
 
 # Dodanie X-Robots-Tag dla indeksowania
 <IfModule mod_headers.c>
     Header always set X-Robots-Tag "index, follow"
 </IfModule>
 
+# Ustawienie domyślnej strony index
+DirectoryIndex index.html
