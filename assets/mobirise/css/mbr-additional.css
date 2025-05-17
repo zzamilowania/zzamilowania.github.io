@@ -1810,8 +1810,6 @@ a {
   max-width: 800px;
 }
 .cid-uLstjc5u71 {
-  padding-top: 1rem;
-  padding-bottom: 0rem;
   position: relative;
   overflow: hidden;
   background-color: #f4f2ef;
@@ -1844,13 +1842,6 @@ a {
 }
 .cid-uLstjc5u71 .image-wrapper {
   height: 100%;
-  border-right: 1px solid #150764;
-}
-@media (max-width: 992px) {
-  .cid-uLstjc5u71 .image-wrapper {
-    border-right: none;
-    border-bottom: 1px solid #150764;
-  }
 }
 .cid-uLstjc5u71 .image-wrapper img {
   height: 100%;
