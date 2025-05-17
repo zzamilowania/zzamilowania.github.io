@@ -90,7 +90,7 @@
         "url": "https://fonts.googleapis.com/css?family=Lora:400,500,600,700,400i,500i,600i,700i"
       }
     ],
-    "uniqCompNum": 112,
+    "uniqCompNum": 119,
     "versionPublish": "5.9.25",
     "imageResize": true,
     "chatbutton": {},
@@ -1655,6 +1655,802 @@
           "_global": false,
           "_once": false,
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            ".card": {
+              "justify-content": "center"
+            },
+            ".image-wrapper": {
+              "display": "flex",
+              "justify-content": "center",
+              "@media (max-width: 992px)": {
+                "margin-bottom": "40px"
+              },
+              "img": {
+                "height": "350px",
+                "width": "350px",
+                "object-fit": "cover",
+                "@media (max-width: 1440px)": {
+                  "width": "300px",
+                  "height": "300px"
+                },
+                "@media (max-width: 992px)": {
+                  "width": "100%",
+                  "height": "300px"
+                },
+                "& when (@showShadow)": {
+                  "box-shadow": "5px 40px 50px 0 @shadow",
+                  "@media (max-width: 992px)": {
+                    "box-shadow": "none"
+                  }
+                }
+              }
+            },
+            ".title-wrapper": {
+              ".mbr-section-title": {
+                "display": "inline-block",
+                "width": "85%",
+                "margin-bottom": "40px",
+                "@media (max-width: 992px)": {
+                  "width": "100%",
+                  "margin-bottom": "20px"
+                }
+              }
+            },
+            ".form-wrapper": {
+              ".form-wrap": {
+                "display": "inline-flex",
+                "width": "70%",
+                "@media (max-width: 992px)": {
+                  "width": "100%"
+                },
+                ".dragArea.row": {
+                  "position": "relative",
+                  "z-index": "1",
+                  ".form-group": {
+                    "margin-bottom": "20px !important",
+                    ".form-control-label": {
+                      "width": "100%",
+                      "margin-bottom": "10px"
+                    },
+                    ".form-control": {
+                      "position": "relative",
+                      "z-index": "1",
+                      "padding": "17px 20px",
+                      "border": "none !important",
+                      "background-color": "@inputBg",
+                      "transition": "all 0.3s ease-in-out",
+                      "box-shadow": "none",
+                      "&:hover, &:focus": {
+                        "border": "none !important",
+                        "box-shadow": "none",
+                        "&::placeholder": {
+                          "opacity": ".5"
+                        }
+                      },
+                      "&::placeholder": {
+                        "color": "@inputColor",
+                        "transition": "all .3s ease"
+                      }
+                    },
+                    "textarea": {
+                      "padding": "20px",
+                      "min-height": "120px"
+                    },
+                    ".form-check": {
+                      "padding-left": "2.3em",
+                      "margin-bottom": "16px",
+                      ".form-check-input": {
+                        "background-color": "@inputColor",
+                        "border-color": "@inputColor"
+                      }
+                    }
+                  },
+                  ".mbr-section-btn": {
+                    "width": "100%",
+                    ".btn": {
+                      "margin-top": "0"
+                    }
+                  }
+                }
+              }
+            },
+            ".mbr-section-title": {
+              "color": "#19171c"
+            },
+            ".mbr-text, .text-wrapper": {
+              "color": "#19171c"
+            },
+            "label": {
+              "color": "#19171c"
+            }
+          },
+          "_name": "form01",
+          "_sourceTheme": "animatem5",
+          "_customHTML": "<section data-bs-version=\"5.1\"\n        class=\"form01 animatem5\"\n        group=\"Form\"\n        mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\"\n>\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\"/>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\"/>\n        <input\n                type=\"range\"\n                inline\n                title=\"Top\"\n                name=\"paddingTop\"\n                min=\"0\"\n                max=\"12\"\n                step=\"1\"\n                value=\"5\"\n                condition=\"fullScreen == false\"\n        />\n        <input\n                type=\"range\"\n                inline\n                title=\"Bottom\"\n                name=\"paddingBottom\"\n                min=\"0\"\n                max=\"12\"\n                step=\"1\"\n                value=\"5\"\n                condition=\"fullScreen == false\"\n        />\n        <input type=\"checkbox\" title=\"Reverse\" name=\"reverseContent\"/>\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked/>\n        <input type=\"checkbox\" title=\"Image Shadow\" name=\"showShadow\" checked/>\n        <input type=\"color\" title=\"Shadow Color\" value=\"#dddddd\" name=\"shadow\" condition=\"showShadow\" selected/>\n        <header>Form</header>\n        <input type=\"color\" title=\"Input Color\" value=\"#19171c\" name=\"inputColor\" selected/>\n        <input type=\"color\" title=\"Input BG\" value=\"#ffffff\" name=\"inputBg\" selected/>\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/animatem5/components/_images/background1.jpg\"/>\n            <input type=\"color\" title=\"Color\" value=\"#f2f1f3\" selected/>\n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input\n                type=\"image\"\n                title=\"Fallback Image\"\n                value=\"@ADDONS_PATH@/animatem5/components/_images/background1.jpg\"\n                name=\"fallBackImage\"\n                condition=\"bg.type === 'video'\"\n        />\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\"/>\n        <input\n                type=\"color\"\n                title=\"Overlay Color\"\n                name=\"overlayColor\"\n                value=\"#ffffff\"\n                condition=\"overlay && bg.type !== 'color'\"\n        />\n        <input\n                type=\"range\"\n                inline\n                title=\"Opacity\"\n                name=\"overlayOpacity\"\n                min=\"0\"\n                max=\"1\"\n                step=\"0.1\"\n                value=\"0.8\"\n                condition=\"overlay && bg.type !== 'color'\"\n        />\n    </mbr-parameters>\n\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div\n            class=\"mbr-overlay\"\n            mbr-if=\"overlay && bg.type !== 'color'\"\n            opacity=\"{{overlayOpacity}}\"\n            bg-color=\"{{overlayColor}}\"\n    ></div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\" mbr-class=\"{'flex-row-reverse' : reverseContent}\">\n            <div class=\"col-12 col-lg-6 card\">\n                <div class=\"image-wrapper\">\n                    <img src=\"@PROJECT_PATH@/assets/images/image20.jpg\" alt=\"Mobirise Website Builder\"/>\n                </div>\n            </div>\n            <div class=\"col-12 col-lg-6 card\">\n                <div class=\"title-wrapper\">\n                    <h2 class=\"mbr-section-title mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\"\n                        data-app-selector=\".mbr-section-title, .mbr-section-btn, .title-wrapper, .form-wrapper\">\n                        <b>Get a Quote <br> Get Creative <br> Get Started</b>\n                    </h2>\n                    <div class=\"form-wrapper\">\n                        <div mbr-form class=\"mbr-form form-wrap\">\n                            <form action name=\"Form Name\" method=\"POST\" class=\"mbr-form form-with-styler\">\n                                <div class=\"row\">\n                                    <div hidden=\"hidden\" data-form-alert class=\"alert alert-success col-12\"> Thanks for\n                                        filling out the form!\n                                    </div>\n                                    <div hidden=\"hidden\" data-form-alert-danger class=\"alert alert-danger col-12\"> Oops...!\n                                        some problem!\n                                    </div>\n                                </div>\n                                <div class=\"dragArea row\">\n                                    <div class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3\"\n                                         data-for=\"email\">\n                                        <input type=\"email\" name=\"email\" placeholder=\"Your email\" data-form-field=\"email\"\n                                               mbr-theme-style=\"display-4\" class=\"form-control\" value>\n                                    </div>\n                                    <div class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3\"\n                                         data-for=\"text\" style>\n                                        <input type=\"text\" name=\"text\" placeholder=\"Your name\" data-form-field=\"text\"\n                                               mbr-theme-style=\"display-4\" class=\"form-control\" value>\n                                    </div>\n                                    <div data-for=\"text2\"\n                                         class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3\">\n                                        <input type=\"text\" name=\"text2\" placeholder=\"Your phone\" data-form-field=\"text\"\n                                               mbr-theme-style=\"display-4\" class=\"form-control\" value>\n                                    </div>\n                                    <div class=\"col mbr-section-btn\" mbr-buttons=\"true\" mbr-theme-style=\"display-4\"\n                                         data-toolbar=\"-mbrBtnMove,-mbrLink,-mbrBtnRemove,-mbrBtnAdd\">\n                                        <a type=\"submit\" class=\"btn btn-secondary\" data-app-placeholder=\"Type Text\">\n                                            Send Now\n                                        </a>\n                                    </div>\n                                </div>\n                            </form>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>\n",
+          "_cid": "uLtbMFyyM5",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {},
+          "_anchor": "form01-34"
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            ".content-wrap": {
+              "padding": "60px",
+              "background-color": "@container",
+              "display": "flex",
+              "@media (max-width: 992px)": {
+                "padding": "30px 20px",
+                "display": "block"
+              },
+              ".cont-wrap": {
+                "width": "50%",
+                "padding-right": "60px",
+                "@media (max-width: 992px)": {
+                  "width": "100%",
+                  "padding-right": "0"
+                },
+                "& when (@reverseContent)": {
+                  "padding-right": "0",
+                  "padding-left": "60px",
+                  "@media (max-width: 992px)": {
+                    "padding-left": "0"
+                  }
+                },
+                ".title-wrapper": {
+                  "margin-bottom": "54px",
+                  "@media (max-width: 992px)": {
+                    "margin-bottom": "40px"
+                  },
+                  ".desc-wrapper": {
+                    ".mbr-desc": {
+                      "display": "inline-block",
+                      "background-color": "@desc",
+                      "padding": "8px 16px",
+                      "margin-bottom": "16px"
+                    }
+                  },
+                  ".mbr-section-title": {
+                    "margin-bottom": "0",
+                    "span": {
+                      "color": "@titleColor"
+                    }
+                  }
+                },
+                ".form-wrapper": {
+                  "padding-right": "130px",
+                  "@media (max-width: 1200px)": {
+                    "padding-right": "0",
+                    "margin-bottom": "40px"
+                  },
+                  "& when (@reverseContent)": {
+                    "padding-right": "0",
+                    "padding-left": "60px",
+                    "@media (max-width: 1200px)": {
+                      "padding-left": "0"
+                    }
+                  },
+                  ".dragArea.row": {
+                    "position": "relative",
+                    "z-index": "1",
+                    ".mbr-text": {
+                      "margin-bottom": "30px",
+                      "@media (max-width: 992px)": {
+                        "margin-bottom": "20px"
+                      }
+                    },
+                    ".form-group": {
+                      "margin-bottom": "20px !important",
+                      ".form-control-label": {
+                        "width": "100%",
+                        "margin-bottom": "10px"
+                      },
+                      ".form-control": {
+                        "position": "relative",
+                        "z-index": "1",
+                        "padding": "22px 20px",
+                        "border": "none !important",
+                        "box-shadow": "none",
+                        "background-color": "@inputBg",
+                        "line-height": "1 !important",
+                        "@media (max-width: 992px)": {
+                          "padding": "22px"
+                        },
+                        "&:hover, &:focus": {
+                          "border": "none !important"
+                        },
+                        "&::placeholder": {
+                          "color": "@inputColor",
+                          "font-size": "18px",
+                          "opacity": ".6"
+                        }
+                      },
+                      "textarea": {
+                        "min-height": "100px"
+                      },
+                      ".form-check": {
+                        "padding-left": "2.3em",
+                        "margin-bottom": "16px",
+                        ".form-check-input": {
+                          "background-color": "@inputColor",
+                          "border-color": "@inputColor"
+                        }
+                      }
+                    },
+                    ".mbr-section-btn": {
+                      "width": "100%",
+                      ".btn": {
+                        "width": "100%",
+                        "margin-top": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              ".map-wrapper": {
+                "position": "relative",
+                "display": "flex",
+                "justify-content": "flex-end",
+                "padding": "10px",
+                "width": "50%",
+                "@media (max-width: 992px)": {
+                  "width": "100%",
+                  "padding-top": "250px"
+                },
+                ".google-map": {
+                  "position": "absolute",
+                  "top": "0",
+                  "left": "0",
+                  "width": "100%",
+                  "height": "100%",
+                  "iframe": {
+                    "position": "absolute",
+                    "top": "0",
+                    "left": "0",
+                    "width": "100%",
+                    "height": "100%"
+                  }
+                },
+                ".contacts-wrapper": {
+                  "position": "relative",
+                  "z-index": "1",
+                  "display": "flex",
+                  "background-color": "@card",
+                  "padding": "30px",
+                  "@media (max-width: 1200px)": {
+                    "display": "block"
+                  },
+                  "@media (max-width: 992px)": {
+                    "padding": "20px 10px 10px"
+                  },
+                  ".contacts-wrap": {
+                    "width": "55%",
+                    "padding-right": "20px",
+                    "@media (max-width: 1200px)": {
+                      "padding-right": "0",
+                      "width": "100%",
+                      "margin-bottom": "20px"
+                    },
+                    "& when (@reverseContent)": {
+                      "padding-right": "0",
+                      "padding-left": "20px",
+                      "@media (max-width: 1200px)": {
+                        "padding-left": "0"
+                      }
+                    },
+                    ".list": {
+                      "padding": "0",
+                      "margin": "0",
+                      "list-style-type": "none",
+                      ".item-wrap": {
+                        "margin-bottom": "0",
+                        "cursor": "pointer",
+                        "transition": "all 0.3s ease-in-out",
+                        "&:hover, &:focus": {
+                          "color": "@active"
+                        }
+                      }
+                    }
+                  },
+                  ".social-wrapper": {
+                    "width": "45%",
+                    "@media (max-width: 1200px)": {
+                      "width": "100%"
+                    },
+                    ".soc-desc": {
+                      "margin-bottom": "16px",
+                      "opacity": ".6"
+                    },
+                    ".social-wrap": {
+                      "display": "inline-flex",
+                      "flex-wrap": "wrap",
+                      ".soc-item": {
+                        "a": {
+                          "display": "block",
+                          "&:hover, &:hover": {
+                            ".mbr-iconfont": {
+                              "transform": "scale(1.1)"
+                            }
+                          },
+                          ".mbr-iconfont": {
+                            "display": "flex",
+                            "align-items": "center",
+                            "justify-content": "center",
+                            "width": "40px",
+                            "height": "40px",
+                            "min-width": "40px",
+                            "color": "@socColor",
+                            "background-color": "@socBg",
+                            "font-size": "16px",
+                            "border-radius": "100%",
+                            "transition": "all 0.3s ease-in-out",
+                            "margin": "0 10px 10px 0"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            ".mbr-section-title": {
+              "color": "#404349"
+            },
+            ".mbr-desc": {
+              "color": "#b19a7c"
+            },
+            ".mbr-text": {
+              "color": "#404349"
+            },
+            ".list": {
+              "color": "#404349"
+            },
+            ".soc-desc": {
+              "color": "#404349"
+            },
+            "label": {
+              "color": "#404349"
+            }
+          },
+          "_name": "form01",
+          "_sourceTheme": "stockm5",
+          "_customHTML": "<section data-bs-version=\"5.1\"\n        class=\"form01 stockm5\"\n        group=\"Form\"\n        mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\"\n>\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\"/>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\"/>\n        <input\n                type=\"range\"\n                inline\n                title=\"Top\"\n                name=\"paddingTop\"\n                min=\"0\"\n                max=\"12\"\n                step=\"1\"\n                value=\"5\"\n                condition=\"fullScreen == false\"\n        />\n        <input\n                type=\"range\"\n                inline\n                title=\"Bottom\"\n                name=\"paddingBottom\"\n                min=\"0\"\n                max=\"12\"\n                step=\"1\"\n                value=\"5\"\n                condition=\"fullScreen == false\"\n        />\n        <input type=\"checkbox\" title=\"Reverse\" name=\"reverseContent\"/>\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked/>\n        <input type=\"color\" title=\"Secondary Color\" value=\"#ed463f\" name=\"titleColor\" condition=\"showTitle\" selected/>\n        <input type=\"checkbox\" title=\"Description\" name=\"showDesc\" checked/>\n        <input type=\"color\" title=\"Description BG\" value=\"#fff1e2\" name=\"desc\" condition=\"showDesc\" selected/>\n        <input type=\"checkbox\" title=\"Contacts\" name=\"showContacts\" checked/>\n        <input type=\"color\" title=\"Active Color\" value=\"#ed463f\" name=\"active\" condition=\"showContacts\" selected/>\n        <input type=\"checkbox\" title=\"Social\" name=\"showSocial\" checked/>\n        <input type=\"range\" inline title=\"Social Amount\" name=\"soc\" min=\"1\" max=\"3\" step=\"1\" value=\"3\"\n               condition=\"showSocial\"/>\n        <input type=\"color\" title=\"Social Color\" value=\"#ffffff\" name=\"socColor\" condition=\"showSocial\" selected/>\n        <input type=\"color\" title=\"Social BG\" value=\"#ed463f\" name=\"socBg\" condition=\"showSocial\" selected/>\n        <input type=\"checkbox\" title=\"Social Description\" name=\"showSocDesc\" condition=\"showSocial\" checked/>\n        <input type=\"color\" title=\"Card BG\" value=\"#f8e7d2\" name=\"card\" condition=\"showContacts || showSocial\"\n               selected/>\n        <input type=\"color\" title=\"Container BG\" value=\"#ffffff\" name=\"container\" selected/>\n        <header>Form</header>\n        <input type=\"color\" title=\"Input BG\" value=\"#f8f8f8\" name=\"inputBg\" selected/>\n        <input type=\"color\" title=\"Input Color\" value=\"#404349\" name=\"inputColor\" selected/>\n        <header>Map</header>\n        <input type=\"map\" title=\"Map\" name=\"googleMap\"/>\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/stockm5/components/_images/background1.jpg\"/>\n            <input type=\"color\" title=\"Color\" value=\"#fff1e2\" selected/>\n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input\n                type=\"image\"\n                title=\"Fallback Image\"\n                value=\"@ADDONS_PATH@/stockm5/components/_images/background1.jpg\"\n                name=\"fallBackImage\"\n                condition=\"bg.type === 'video'\"\n        />\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\"/>\n        <input\n                type=\"color\"\n                title=\"Overlay Color\"\n                name=\"overlayColor\"\n                value=\"#ffffff\"\n                condition=\"overlay && bg.type !== 'color'\"\n        />\n        <input\n                type=\"range\"\n                inline\n                title=\"Opacity\"\n                name=\"overlayOpacity\"\n                min=\"0\"\n                max=\"1\"\n                step=\"0.1\"\n                value=\"0.8\"\n                condition=\"overlay && bg.type !== 'color'\"\n        />\n    </mbr-parameters>\n\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div\n            class=\"mbr-overlay\"\n            mbr-if=\"overlay && bg.type !== 'color'\"\n            opacity=\"{{overlayOpacity}}\"\n            bg-color=\"{{overlayColor}}\"\n    ></div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-12\">\n                <div class=\"content-wrap\" mbr-class=\"{'flex-row-reverse' : reverseContent}\">\n                    <div class=\"cont-wrap\">\n                        <div class=\"title-wrapper\" mbr-if=\"showDesc || showTitle\">\n                            <div class=\"desc-wrapper\">\n                                <p class=\"mbr-desc mbr-fonts-style\" mbr-theme-style=\"display-4\"\n                                   mbr-if=\"showDesc\" data-app-selector=\".mbr-desc, .desc-wrapper\">\n                                    Contacts\n                                </p>\n                            </div>\n                            <h2 class=\"mbr-section-title mbr-fonts-style\"\n                                data-app-selector=\".mbr-section-title, .title-wrap\"\n                                mbr-theme-style=\"display-2\" mbr-if=\"showTitle\">\n                                <b>Contact us about <span><b>cooperation</b></span></b>\n                            </h2>\n                        </div>\n                        <div mbr-form class=\"mbr-form form-wrapper\">\n                            <form action=\"\" name=\"Form Name\" method=\"POST\" class=\"mbr-form form-with-styler\">\n                                <div class=\"row\">\n                                    <div hidden=\"hidden\" data-form-alert=\"\" class=\"alert alert-success col-12\"> Thanks\n                                        for\n                                        filling out the form!\n                                    </div>\n                                    <div hidden=\"hidden\" data-form-alert-danger=\"\" class=\"alert alert-danger col-12\">\n                                        Oops...! some problem!\n                                    </div>\n                                </div>\n                                <div class=\"dragArea row\">\n                                    <div class=\"col-lg-12 col-md-12 col-sm-12\">\n                                        <p mbr-theme-style=\"display-4\" class=\"mbr-text mbr-fonts-style\"\n                                           data-app-selector=\".mbr-text\">\n                                            Fill out the form and our manager will contact you\n                                        </p>\n                                    </div>\n                                    <div class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3\" data-for=\"text\">\n                                        <input type=\"text\" name=\"text\" placeholder=\"Text\" data-form-field=\"text\"\n                                               mbr-theme-style=\"display-7\" class=\"form-control\" value>\n                                    </div>\n                                    <div data-for=\"name\" class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3 mb-3\">\n                                        <input type=\"text\" name=\"name\" placeholder=\"Company\" data-form-field=\"name\"\n                                               mbr-theme-style=\"display-4\" class=\"form-control\" value>\n                                    </div>\n                                    <div class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3 mb-3 mb-3 mb-3\"\n                                         data-for=\"email\">\n                                        <input type=\"email\" name=\"email\" placeholder=\"Email\" data-form-field=\"email\"\n                                               mbr-theme-style=\"display-4\" class=\"form-control\" value>\n                                    </div>\n                                    <div class=\"col mbr-section-btn\" mbr-buttons=\"true\" mbr-theme-style=\"display-4\"\n                                         data-toolbar=\"-mbrBtnMove,-mbrLink,-mbrBtnRemove,-mbrBtnAdd\">\n                                        <a data-toolbar=\"-mbrBtnMove,-mbrLink,-mbrBtnRemove,-mbrBtnAdd\" type=\"submit\"\n                                           class=\"btn btn-secondary\">\n                                            <span class=\"mobi-mbri mobi-mbri-right mbr-iconfont mbr-iconfont-btn\"></span>\n                                            Send now\n                                        </a>\n                                    </div>\n                                </div>\n                            </form>\n                        </div>\n                    </div>\n                    <div class=\"map-wrapper card\">\n                        <div class=\"google-map\" mbr-map=\"googleMap\"></div>\n                        <div class=\"contacts-wrapper\" mbr-if=\"showContacts || showSocial\">\n                            <div class=\"contacts-wrap\" mbr-if=\"showContacts\">\n                                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-7\"\n                                    data-app-selector=\".list, .item-wrap\" data-multiline mbr-article>\n                                    <li class=\"item-wrap\"><b>+98 765 43 21</b></li>\n                                    <li class=\"item-wrap\"><b>mobi@rise.com</b></li>\n                                    <li class=\"item-wrap\">La Paix 12, Paris</li>\n                                </ul>\n                            </div>\n                            <div class=\"social-wrapper\" mbr-if=\"showSocial\">\n                                <p class=\"soc-desc mbr-fonts-style\" mbr-theme-style=\"display-4\"\n                                   mbr-if=\"showSocDesc\" data-app-selector=\".soc-desc, .social-wrapper\">\n                                    Our social media\n                                </p>\n                                <div class=\"social-wrap\">\n                                    <div class=\"soc-item\">\n                                        <a href=\"https://mobiri.se/\">\n                                            <span mbr-icon class=\"mbr-iconfont socicon socicon-facebook\"></span>\n                                        </a>\n                                    </div>\n                                    <div class=\"soc-item\" mbr-if=\"soc > 1\">\n                                        <a href=\"https://mobiri.se/\">\n                                            <span mbr-icon class=\"mbr-iconfont socicon socicon-instagram\"></span>\n                                        </a>\n                                    </div>\n                                    <div class=\"soc-item\" mbr-if=\"soc > 2\">\n                                        <a href=\"https://mobiri.se/\">\n                                            <span mbr-icon class=\"mbr-iconfont socicon socicon-tiktok\"></span>\n                                        </a>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>\n",
+          "_cid": "uLtc2qqH6G",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {},
+          "_anchor": "form01-35"
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            "& when (@fullWidth)": {
+              ".container-fluid": {
+                "padding": "0 50px",
+                "@media (max-width: 1440px)": {
+                  "padding": "0 40px"
+                },
+                "@media (max-width: 992px)": {
+                  "padding": "0 20px"
+                }
+              }
+            },
+            ".container": {
+              "@media (max-width: 992px)": {
+                "padding": "0 20px"
+              }
+            },
+            ".row": {
+              "justify-content": "center"
+            },
+            ".content-wrapper": {
+              "display": "flex",
+              "padding": "30px",
+              "border-radius": "2rem",
+              "background-color": "@container",
+              "@media (max-width: 992px)": {
+                "display": "block",
+                "padding": "20px"
+              },
+              ".card": {
+                "justify-content": "center"
+              },
+              ".image-wrapper": {
+                "width": "50%",
+                "@media (max-width: 992px)": {
+                  "width": "100%"
+                },
+                "img": {
+                  "height": "720px",
+                  "object-fit": "cover",
+                  "border-radius": "20px !important",
+                  "@media (max-width: 992px)": {
+                    "height": "350px"
+                  }
+                }
+              },
+              ".content-wrap": {
+                "width": "50%",
+                "padding": "0 200px 0 60px",
+                "& when (@reverseContent)": {
+                  "padding": "0 60px 0 200px",
+                  "@media (max-width: 992px)": {
+                    "padding": "0"
+                  }
+                },
+                "@media (max-width: 1440px)": {
+                  "padding": "0 100px 0 60px"
+                },
+                "@media (max-width: 1199px)": {
+                  "padding": "0 40px 0 60px"
+                },
+                "@media (max-width: 992px)": {
+                  "width": "100%",
+                  "padding": "0",
+                  "margin-bottom": "40px"
+                },
+                ".dragArea.row": {
+                  ".mbr-section-title": {
+                    "margin-bottom": "20px !important"
+                  },
+                  ".mbr-text": {
+                    "margin-bottom": "20px !important"
+                  },
+                  ".form-group": {
+                    "margin-bottom": "20px !important",
+                    ".form-control-label": {
+                      "width": "100%",
+                      "margin-bottom": "8px"
+                    },
+                    ".form-control": {
+                      "padding": "20px",
+                      "border": "none !important",
+                      "box-shadow": "none",
+                      "border-radius": "20px !important",
+                      "background-color": "@input",
+                      "&:hover, &:focus": {
+                        "border": "none !important"
+                      },
+                      "&::placeholder": {
+                        "color": "@primaryColor",
+                        "opacity": ".5"
+                      }
+                    },
+                    "textarea": {
+                      "min-height": "150px"
+                    },
+                    ".form-check": {
+                      "padding-left": "1.9em",
+                      "margin-bottom": "16px",
+                      ".form-check-input": {
+                        "background-color": "@primaryColor",
+                        "border-color": "@primaryColor",
+                        "border-radius": "0"
+                      }
+                    }
+                  },
+                  ".mbr-section-btn": {
+                    "width": "100%",
+                    "margin-top": "20px",
+                    ".btn": {
+                      "margin-top": "0"
+                    }
+                  }
+                }
+              }
+            },
+            ".mbr-section-title": {
+              "color": "#ffffff"
+            },
+            ".mbr-text": {
+              "color": "#ffffff"
+            },
+            "label": {
+              "color": "#ffffff"
+            }
+          },
+          "_name": "form01",
+          "_sourceTheme": "forwardm5",
+          "_customHTML": "<section data-bs-version=\"5.1\"\r\n        class=\"form01 forwardm5\"\r\n        group=\"Form\"\r\n        mbr-class=\"{\r\n    'mbr-fullscreen': fullScreen,\r\n    'mbr-parallax-background': bg.parallax}\"\r\n>\r\n    <mbr-parameters>\r\n        <header>Size</header>\r\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\"/>\r\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked/>\r\n        <input\r\n                type=\"range\"\r\n                inline\r\n                title=\"Top\"\r\n                name=\"paddingTop\"\r\n                min=\"0\"\r\n                max=\"12\"\r\n                step=\"1\"\r\n                value=\"5\"\r\n                condition=\"fullScreen == false\"\r\n        />\r\n        <input\r\n                type=\"range\"\r\n                inline\r\n                title=\"Bottom\"\r\n                name=\"paddingBottom\"\r\n                min=\"0\"\r\n                max=\"12\"\r\n                step=\"1\"\r\n                value=\"5\"\r\n                condition=\"fullScreen == false\"\r\n        />\r\n        <input type=\"checkbox\" title=\"Reverse\" name=\"reverseContent\" checked/>\r\n        <header>Show/Hide</header>\r\n        <input type=\"color\" title=\"Container BG\" value=\"#0f1d07\" name=\"container\" selected/>\r\n        <header>Form</header>\r\n        <input type=\"color\" title=\"Input BG\" value=\"#ffffff\" name=\"input\" selected/>\r\n        <header>Background</header>\r\n        <fieldset type=\"background\" name=\"bg\" parallax>\r\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/forwardm5/components/_images/background1.jpg\"/>\r\n            <input type=\"color\" title=\"Color\" value=\"#B488F1\" selected/>\r\n        </fieldset>\r\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\r\n        <input\r\n                type=\"image\"\r\n                title=\"Fallback Image\"\r\n                value=\"@ADDONS_PATH@/forwardm5/components/_images/background1.jpg\"\r\n                name=\"fallBackImage\"\r\n                condition=\"bg.type === 'video'\"\r\n        />\r\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\"/>\r\n        <input\r\n                type=\"color\"\r\n                title=\"Overlay Color\"\r\n                name=\"overlayColor\"\r\n                value=\"#ffffff\"\r\n                condition=\"overlay && bg.type !== 'color'\"\r\n        />\r\n        <input\r\n                type=\"range\"\r\n                inline\r\n                title=\"Opacity\"\r\n                name=\"overlayOpacity\"\r\n                min=\"0\"\r\n                max=\"1\"\r\n                step=\"0.1\"\r\n                value=\"0.8\"\r\n                condition=\"overlay && bg.type !== 'color'\"\r\n        />\r\n    </mbr-parameters>\r\n\r\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\r\n    <div\r\n            class=\"mbr-overlay\"\r\n            mbr-if=\"overlay && bg.type !== 'color'\"\r\n            opacity=\"{{overlayOpacity}}\"\r\n            bg-color=\"{{overlayColor}}\"\r\n    ></div>\r\n\r\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\r\n        <div class=\"row\">\r\n            <div class=\"col-12\">\r\n                <div class=\"content-wrapper\" mbr-class=\"{'flex-row-reverse' : reverseContent}\">\r\n                    <div class=\"content-wrap card\">\r\n                        <div mbr-form class=\"mbr-form\">\r\n                            <form action name=\"Form Name\" method=\"POST\" class=\"mbr-form form-with-styler\">\r\n                                <div class=\"row\">\r\n                                    <div hidden=\"hidden\" data-form-alert class=\"alert alert-success col-12\"> Thanks for\r\n                                        filling\r\n                                        out the form!\r\n                                    </div>\r\n                                    <div hidden=\"hidden\" data-form-alert-danger class=\"alert alert-danger col-12\">\r\n                                        Oops...! some\r\n                                        problem!\r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"dragArea row\">\r\n                                    <div class=\"col-lg-12 col-md-12 col-sm-12\">\r\n                                        <h3 mbr-theme-style=\"display-7\" class=\"mbr-fonts-style mbr-section-title\"\r\n                                        data-app-selector=\".mbr-section-title, .mbr-section-btn\">\r\n                                            <b>Reach out to our team of marketing experts</b>\r\n                                        </h3>\r\n                                    </div>\r\n                                    <div class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3 mb-3 mb-3 mb-3\"\r\n                                         data-for=\"name\">\r\n                                        <input type=\"text\" name=\"name\" placeholder=\"Name*\" data-form-field=\"name\"\r\n                                               mbr-theme-style=\"display-4\" class=\"form-control\" value>\r\n                                    </div>\r\n                                    <div class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3 mb-3 mb-3\" data-for=\"email\"\r\n                                         style>\r\n                                        <input type=\"email\" name=\"email\" placeholder=\"Email*\" data-form-field=\"email\"\r\n                                               mbr-theme-style=\"display-4\" class=\"form-control\" value>\r\n                                    </div>\r\n                                    <div data-for=\"text\" class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3\">\r\n                                        <input type=\"text\" name=\"text\" placeholder=\"Copmpany*\" data-form-field=\"text\"\r\n                                               mbr-theme-style=\"display-7\" class=\"form-control\" value>\r\n                                    </div>\r\n                                    <div class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3 mb-3\" data-for=\"textarea\">\r\n                                <textarea name=\"textarea\" placeholder=\"Message\" data-form-field=\"textarea\"\r\n                                          mbr-theme-style=\"display-4\" class=\"form-control\"></textarea>\r\n                                    </div>\r\n                                    <div mbr-buttons=\"true\" mbr-theme-style=\"display-4\"\r\n                                         data-toolbar=\"-mbrBtnMove,-mbrLink,-mbrBtnRemove,-mbrBtnAdd\"\r\n                                         class=\"col mbr-section-btn\">\r\n                                        <a type=\"submit\" class=\"btn btn-secondary\" data-app-placeholder=\"Type Text\">\r\n                                            <span class=\"mobi-mbri mobi-mbri-right mbr-iconfont mbr-iconfont-btn\"></span>\r\n                                            Send Message\r\n                                        </a>\r\n                                    </div>\r\n                                </div>\r\n                            </form>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"image-wrapper\">\r\n                        <img src=\"@PROJECT_PATH@/assets/images/image7.jpg\" alt=\"Mobirise\">\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n",
+          "_cid": "uLtc7yKczG",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {},
+          "_anchor": "form01-36"
+        },
+        {
+          "_name": "form1",
+          "_sourceTheme": "tutorm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"tutorm5 form1\" group=\"Form\"\r\n\tmbr-class=\"{'mbr-fullscreen': fullScreen,'mbr-parallax-background': bg.parallax}\" plugins=\"formstyler, datepicker\">\r\n\t<mbr-parameters>\r\n\t\t<header>Size</header>\r\n\t\t<input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\r\n\t\t<input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\r\n\t\t<input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"6\"\r\n\t\t\tcondition=\"fullScreen == false\">\r\n\t\t<input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"6\"\r\n\t\t\tcondition=\"fullScreen == false\">\r\n\t\t<input type=\"checkbox\" title=\"Reverse\" name=\"reverseContent\">\r\n\t\t<header>Show/Hide</header>\r\n\t\t<input type=\"checkbox\" title=\"Form Title\" name=\"showFormTitle\">\r\n\t\t<input type=\"checkbox\" title=\"Form Subtitle\" name=\"showFormSubtitle\" checked>\r\n\r\n\t\t<header>Color</header>\r\n\t\t<input type=\"color\" title=\"Form\" name=\"form\" value=\"#232323\">\r\n\t\t<input type=\"color\" title=\"Form Text\" name=\"formtext\" value=\"#f3f6f9\">\r\n\r\n\r\n\t\t<header>Background</header>\r\n\t\t<input type=\"color\" title=\"Color\" name=\"bgColor\" value=\"#ffffff\">\r\n\t\t<input type=\"hidden\" name=\"usedRecaptcha\" value=\"false\">\r\n\t</mbr-parameters>\r\n\r\n\t<div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\"\r\n\t\tmbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\"></div>\r\n\r\n\t<div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\r\n\t\t<div class=\"row\">\r\n\t\t\t<div class=\"col-12 md-pb col-lg-6\">\r\n\t\t\t\t<div class=\"item-wrapper\">\r\n\t\t\t\t\t<div class=\"mbr-section-head mb-5\" mbr-if=\"showFormTitle || showFormSubtitle\">\r\n\t\t\t\t\t\t<h3 class=\"mbr-section-title mbr-fonts-style align-center mb-0\" mbr-theme-style=\"display-2\"\r\n\t\t\t\t\t\t\tmbr-if=\"showFormTitle\" data-app-selector=\".mbr-section-title\">\r\n\t\t\t\t\t\t\t<b>Contacts</b>\r\n\t\t\t\t\t\t</h3>\r\n\t\t\t\t\t\t<h4 class=\"mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-4\"\r\n\t\t\t\t\t\t\tmbr-theme-style=\"display-5\" mbr-if=\"showFormSubtitle\"\r\n\t\t\t\t\t\t\tdata-app-selector=\".mbr-section-subtitle\">\r\n\r\n\t\t\t\t\t\t\tNeed some advice? <br>Just write to us</h4>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div mbr-form class=\"col-lg-12 mx-auto mbr-form\">\r\n\r\n\t\t\t\t\t\t<!--Formbuilder Form-->\r\n\t\t\t\t\t\t<form action name=\"Form Name\" method=\"POST\" class=\"mbr-form form-with-styler\" data-verified>\r\n\t\t\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t\t\t<div hidden=\"hidden\" data-form-alert class=\"alert alert-success col-12\">Thanks for\r\n\t\t\t\t\t\t\t\t\tfilling out the form!</div>\r\n\t\t\t\t\t\t\t\t<div hidden=\"hidden\" data-form-alert-danger class=\"alert alert-danger col-12\"> Oops...!\r\n\t\t\t\t\t\t\t\t\tsome problem! </div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"dragArea row\">\r\n\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3 mb-3\" data-for=\"name\">\r\n\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"name\" placeholder=\"Your Name\" data-form-field=\"name\"\r\n\t\t\t\t\t\t\t\t\t\tmbr-theme-style=\"display-7\" class=\"form-control\" value>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3 mb-3\" data-for=\"email\">\r\n\t\t\t\t\t\t\t\t\t<input type=\"email\" name=\"email\" placeholder=\"Your E-mail\" data-form-field=\"email\"\r\n\t\t\t\t\t\t\t\t\t\tmbr-theme-style=\"display-7\" class=\"form-control\" value>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 mt-3 mbr-section-btn\" mbr-buttons=\"true\"\r\n\t\t\t\t\t\t\t\t\tmbr-theme-style=\"display-7\"\r\n\t\t\t\t\t\t\t\t\tdata-toolbar=\"-mbrBtnMove,-mbrLink,-mbrBtnRemove,-mbrBtnAdd\"><a type=\"submit\"\r\n\t\t\t\t\t\t\t\t\t\tclass=\"btn btn-primary\" data-app-placeholder=\"Type Text\">Get consultation </a>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</form><!--Formbuilder Form-->\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-12 col-lg-6\">\r\n\t\t\t\t<div class=\"image-wrapper\">\r\n\t\t\t\t\t<img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/features1.jpg\" alt=\"Mobirise Website Builder\">\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\r\n\t\t</div>\r\n\t</div>\r\n</section>",
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "background-color": "@bgColor",
+            "& when (@reverseContent)": {
+              ".row": {
+                "flex-direction": "row-reverse"
+              }
+            },
+            ".mbr-section-title": {
+              "text-align": "left",
+              "color": "#ffffff"
+            },
+            ".item-wrapper": {
+              "background": "@form",
+              "height": "100%",
+              "display": "flex",
+              "justify-content": "center",
+              "flex-direction": "column",
+              "padding": "4rem",
+              "@media (max-width: 767px)": {
+                "padding": "1rem"
+              }
+            },
+            ".image-wrapper, img": {
+              "height": "100%",
+              "object-fit": "cover"
+            },
+            ".md-pb": {
+              "@media (max-width: 992px)": {
+                "margin-bottom": "2rem !important"
+              }
+            },
+            "input, textarea": {
+              "border-radius": "0 !important",
+              "border": "0px !important",
+              "border-bottom": "1px solid @formtext !important",
+              "background": "transparent",
+              "box-shadow": "none",
+              "padding": "0",
+              "color": "@formtext !important",
+              "&:hover, &:active, &:focus": {
+                "border": "0px !important",
+                "background": "transparent",
+                "border-bottom": "1px solid @formtext !important",
+                "box-shadow": "none"
+              }
+            },
+            ".mbr-section-subtitle": {
+              "color": "#ffffff",
+              "text-align": "left"
+            }
+          },
+          "_cid": "uLtccg6w25",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {},
+          "_anchor": "form1-37"
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "overflow": "hidden",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            "& when (@fullWidth)": {
+              ".container-fluid": {
+                "padding": "0 60px",
+                "@media (max-width: 992px)": {
+                  "padding": "0 23px"
+                },
+                "@media (max-width: 768px)": {
+                  "padding": "0 12px"
+                }
+              }
+            },
+            ".container": {
+              "@media (max-width: 992px)": {
+                "padding": "0 23px"
+              },
+              "@media (max-width: 768px)": {
+                "padding": "0 12px"
+              }
+            },
+            ".card-wrapper": {
+              "padding": "48px",
+              "position": "relative",
+              "border-radius": "32px",
+              "overflow": "hidden",
+              "height": "100%",
+              "@media (max-width: 992px)": {
+                "padding": "24px",
+                "margin-bottom": "32px",
+                "height": "auto"
+              },
+              "img": {
+                "position": "absolute",
+                "top": "0",
+                "left": "0",
+                "width": "100%",
+                "height": "100%",
+                "object-fit": "cover"
+              },
+              ".mbr-section-title": {
+                "position": "relative",
+                "z-index": "1",
+                "margin-bottom": "0"
+              }
+            },
+            ".mbr-form": {
+              ".form-wrap": {
+                "width": "100%",
+                "padding": "48px",
+                "background-color": "@form",
+                "border-radius": "32px",
+                "@media (max-width: 992px)": {
+                  "padding": "32px"
+                },
+                "@media (max-width: 768px)": {
+                  "padding": "24px"
+                },
+                ".dragArea.row": {
+                  ".mbr-section-title": {
+                    "margin-bottom": "20px !important"
+                  },
+                  ".mbr-text": {
+                    "margin-bottom": "20px !important"
+                  },
+                  ".form-group": {
+                    "margin-bottom": "16px !important",
+                    ".form-control": {
+                      "padding": "16px",
+                      "box-shadow": "none",
+                      "border-radius": "16px !important",
+                      "border": "1px solid @border !important",
+                      "background-color": "@inputBg",
+                      "&:hover, &:focus": {
+                        "border": "1px solid @infoColor !important",
+                        "box-shadow": "none"
+                      },
+                      "&::placeholder": {
+                        "color": "@border"
+                      }
+                    },
+                    "textarea": {
+                      "min-height": "160px"
+                    },
+                    ".form-check": {
+                      "padding-left": "1.7em",
+                      "margin-bottom": "10px",
+                      ".form-check-input": {
+                        "background-color": "@border",
+                        "border-color": "@border"
+                      }
+                    }
+                  },
+                  ".mbr-section-btn": {
+                    "margin-top": "6px",
+                    ".btn": {
+                      "width": "100%"
+                    }
+                  }
+                }
+              }
+            },
+            ".mbr-section-title": {
+              "color": "#ffffff"
+            },
+            "label": {
+              "color": "#ffffff"
+            }
+          },
+          "_name": "form02",
+          "_sourceTheme": "merchm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"form02 merchm5\" group=\"Form\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        <input type=\"checkbox\" title=\"Reverse\" name=\"reverseContent\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <header>Form</header>\n        <input type=\"color\" title=\"Input BG\" value=\"#29292a\" name=\"inputBg\" selected>\n        <input type=\"color\" title=\"Input Border\" value=\"#bbbbbb\" name=\"border\" selected>\n        <input type=\"color\" title=\"Form BG\" value=\"#212124\" name=\"form\" selected>\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/merchm5/components/_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input type=\"image\" title=\"Fallback Image\" value=\"@ADDONS_PATH@/merchm5/components/_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\" mbr-class=\"{'flex-row-reverse' : reverseContent}\">\n            <div class=\"col-12 col-lg-6\">\n                <div class=\"card-wrapper\">\n                    <img src=\"@PROJECT_PATH@/assets/images/grupowe-1685x1685.jpeg\" alt=\"Mobirise\">\n                    <h2 class=\"mbr-section-title mbr-fonts-style\" data-app-selector=\".mbr-section-title, .mbr-section-btn\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\">\n                        Zajęcia grupowe - ankieta</h2>\n                </div>\n            </div>\n            <div mbr-form class=\"col-12 col-lg-6 mx-auto mbr-form\">\n                <form action=\"zz.judyta@gmail.com\" name=\"Form Name\" method=\"POST\" class=\"mbr-form form-with-styler form-wrap\" data-verified=\"zz.judyta@gmail.com\">\n                    <div class=\"row\">\n                        <div hidden=\"hidden\" data-form-alert class=\"alert alert-success col-12\">Dziękuję za wypełnienie ankiety :)</div>\n                        <div hidden=\"hidden\" data-form-alert-danger class=\"alert alert-danger col-12\"> Oops...!\n                            some problem!\n                        </div>\n                    </div>\n                    <div class=\"dragArea row\">\n                        <div class=\"col-lg-12 col-md-12 col-sm-12\">\n                            <h3 mbr-theme-style=\"display-7\" class=\"mbr-section-title mbr-fonts-style\">📣 Zapraszam do wypełnienia krótkiej ankiety!<br><br>\n<div>Planuję uruchomić zajęcia grupowe i chciałabym jak najlepiej dopasować je do Waszych potrzeb.</div><br><div>\n</div><div>📝 Jeśli interesują Cię treningi w małych grupach wypełnij poniższy formularz i daj znać - Twoja odpowiedź pomoże mi zaplanować grafik.</div><br><div> \n</div><div>Wypełnienie formularza nie zobowiązuje do udziału, to tylko wstępne badanie zainteresowania.</div><br><div>\n</div><div>Dziękuję za poświęcony czas! 💪</div><div>\n</div><div>\n</div><div>\n</div></h3>\n                        </div>\n                        <div class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3\" data-for=\"text\">\n                            <label mbr-text mbr-theme-style=\"display-4\" for=\"text\" class=\"form-control-label mbr-fonts-style\">Jaki typ zajęć by Ciebie interesował ?</label>\n                            <input type=\"text\" name=\"text\" placeholder=\"Pilates, HIIT, Body Pump, Stretching, Fitness ogólnorozwojowy, Inne - jakie?\" data-form-field=\"text\" mbr-theme-style=\"display-7\" class=\"form-control\" value>\n                        </div>\n                        <div data-for=\"text1\" class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3\" style>\n                            <label mbr-text mbr-theme-style=\"display-4\" for=\"text1\" class=\"form-control-label mbr-fonts-style\">Jakie dni/godziny Tobie pasują ?</label>\n                            <input type=\"text\" name=\"text1\" placeholder=\"Dzień tygodnia / Godziny\" data-form-field=\"text1\" mbr-theme-style=\"display-7\" class=\"form-control\" value>\n                        </div>\n                        <div data-for=\"text2\" class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3\">\n                            <label mbr-text mbr-theme-style=\"display-4\" for=\"text2\" class=\"form-control-label mbr-fonts-style\">Kontakt do Ciebie:</label>\n                            <input type=\"text\" name=\"text2\" placeholder=\"Imię oraz telefon lub mail\" data-form-field=\"text2\" mbr-theme-style=\"display-7\" class=\"form-control\" value>\n                        </div>\n                        <div class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3\" data-for=\"email1\" hidden=\"hidden\">\n                            <label mbr-text mbr-theme-style=\"display-4\" for=\"email1\" class=\"form-control-label mbr-fonts-style\" hidden=\"hidden\">Client</label>\n                            <input type=\"email\" name=\"email1\" placeholder=\"Your email\" data-form-field=\"email\" mbr-theme-style=\"display-4\" class=\"form-control\" value hidden=\"hidden\">\n                        </div>\n                        <div class=\"col-lg-12 col-md-12 col-sm-12 mbr-section-btn\" mbr-buttons=\"true\" mbr-theme-style=\"display-4\" data-toolbar=\"-mbrBtnMove,-mbrLink,-mbrBtnRemove,-mbrBtnAdd\"><a type=\"submit\" class=\"btn btn-info\" data-app-placeholder=\"Type Text\">Wyślij ankietę</a></div>\n                    </div>\n                </form>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "uLtcjhGhj4",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {},
+          "_anchor": "form02-39"
         },
         {
           "alias": false,
