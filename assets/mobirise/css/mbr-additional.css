@@ -2671,13 +2671,8 @@ a {
 }
 .cid-uyJwnn8X7Y {
   display: flex;
-  padding-top: 7rem;
-  padding-bottom: 0rem;
-  background-image: url("../../../assets/images/social-media-3758364-1920-1920x819.jpg");
-}
-.cid-uyJwnn8X7Y .mbr-overlay {
-  background-color: #000000;
-  opacity: 0.4;
+  padding-top: 24rem;
+  padding-bottom: 12rem;
 }
 @media (min-width: 768px) {
   .cid-uyJwnn8X7Y {
@@ -2719,6 +2714,7 @@ a {
   height: 100%;
   position: absolute;
   top: 0;
+  background-image: url("../../../assets/images/social-media-3758364.jpg");
 }
 .cid-uyJwnn8X7Y .mbr-section-title,
 .cid-uyJwnn8X7Y .mbr-section-subtitle {
