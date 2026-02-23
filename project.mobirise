@@ -115,7 +115,7 @@
     "imageResize": false,
     "chatbutton": {},
     "favicon": "@PROJECT_PATH@/assets/images/logo201-128x128_1.png",
-    "mbrsiteDomain": "arnvyc8jng",
+    "mbrsiteDomain": "twknvmdapx",
     "usedWebp": false,
     "cssOptimize": false,
     "lazyLoad": false,
@@ -127,7 +127,7 @@
     "pwa-switcher": false,
     "screenshot": "screenshot.png",
     "publishChangesOnly": true,
-    "google-analytics": "G-8PJQVVWCSM",
+    "google-analytics": "",
     "cookiesAlert": {
       "customDialogSelector": false,
       "colorText": "#424a4d",
